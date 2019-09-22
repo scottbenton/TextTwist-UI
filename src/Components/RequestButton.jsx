@@ -24,9 +24,10 @@ export default function RequestButton(props) {
             setRack(rack);
 
             var wordsObject = Object.keys(results.data.words);
-
+            console.log(wordsObject);
             var wordsArray = [];
-            Object.keys(wordsObject).forEach((key) => {
+            wordsObject.forEach((key) => {
+                console.log(key);
                 if (results.data.words[key]) {
                     var wordObj = {
                         word: results.data.words[key],

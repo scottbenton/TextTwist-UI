@@ -7,9 +7,8 @@ export default function UserInput(props) {
 
     const [userInput, setUserInput] = React.useState('');
 
-    const handleKeyDown = (event) => {
+    function handleKeyDown(event) {
         event.preventDefault();
-
         var key = event.key.toUpperCase();
         if (key === 'BACKSPACE') {
             var removedChar = '';
@@ -66,27 +65,37 @@ export default function UserInput(props) {
             }
         }
         else if (key === "ENTER") {
-            console.log("ENTER WAS PRESSED");
-            setWords(prevWords => {
-                var found = false;
-                var newWords = prevWords.map((word) => {
-                    if (!word.found && word.word === userInput) {
-                        setUserInput('');
-                        found = true;
-                        return { word: word.word, found: true }
+            setUserInput(prevInput => {
+                var newInput = prevInput;
+                setWords(prevWords => {
+                    console.log(prevWords);
+                    console.log(prevInput);
+                    var foundWord = prevWords.findIndex((word) => {
+                        return !word.found && word.word === prevInput;
+                    });
+                    if (foundWord >= 0) {
+                        setAllUnused();
+                        newInput = '';
+                        var newWords = [...prevWords];
+                        newWords[foundWord].found = true;
+                        return newWords;
                     }
-                    else {
-                        return word;
-                    }
-                })
-                if (found) {
-                    return newWords;
-                }
-                else {
                     return prevWords;
-                }
+                })
+                return newInput;
             })
         }
+    }
+
+    const setAllUnused = () => {
+        setRack(prevRack => {
+            var newRack = [...prevRack];
+            newRack.forEach(char => {
+                char.used = false;
+            });
+            console.log(newRack);
+            return newRack;
+        })
     }
 
     useEffect(() => {
@@ -95,10 +104,10 @@ export default function UserInput(props) {
 
     useEffect(() => {
         // On load, add this event listener
-        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('keydown', (event) => handleKeyDown(event));
         // On unload, remove this event listener
         return () => {
-            document.removeEventListener('keydown', handleKeyDown);
+            document.removeEventListener('keydown', (event) => handleKeyDown(event));
         }
     }, []);
 
