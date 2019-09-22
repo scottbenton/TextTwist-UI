@@ -16,8 +16,13 @@ export default function RequestButton(props) {
             method: 'get',
             url: CORS_API + PHP_URL,
         }).then((results) => {
-            setRack(results.data.rack);
-            console.log("Rack: " + results.data.rack);
+            const rackChars = (Array.from(results.data.rack));
+            console.log(rackChars);
+            const rack = rackChars.map((char) => ({char: char.toUpperCase(), used: false}));
+
+            console.log(rack);
+            setRack(rack);
+
             var wordsObject = Object.keys(results.data.words);
 
             var wordsArray = [];
