@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import UserInput from './UserInput';
 import RequestButton from './RequestButton';
 import RemainingWords from './RemainingWords';

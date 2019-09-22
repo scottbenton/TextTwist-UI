@@ -1,13 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
-import { Container, Row, Col, Badge } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 export default function UserInput(props) {
-    const { words, setWords, rack, setRack } = props;
+    const { setWords, rack, setRack } = props;
 
     const [userInput, setUserInput] = React.useState('');
 
-    function handleKeyDown(event) {
+    const setAllUnused = useCallback(() => {
+        setRack(prevRack => {
+            var newRack = [...prevRack];
+            newRack.forEach(char => {
+                char.used = false;
+            });
+            console.log(newRack);
+            return newRack;
+        })
+    }, [setRack]);
+
+    const handleKeyDown = useCallback((event) => {
         event.preventDefault();
         var key = event.key.toUpperCase();
         if (key === 'BACKSPACE') {
@@ -85,18 +96,8 @@ export default function UserInput(props) {
                 return newInput;
             })
         }
-    }
+    }, [setAllUnused, setRack, setWords]);
 
-    const setAllUnused = () => {
-        setRack(prevRack => {
-            var newRack = [...prevRack];
-            newRack.forEach(char => {
-                char.used = false;
-            });
-            console.log(newRack);
-            return newRack;
-        })
-    }
 
     useEffect(() => {
         console.log(userInput);
@@ -109,7 +110,7 @@ export default function UserInput(props) {
         return () => {
             document.removeEventListener('keydown', (event) => handleKeyDown(event));
         }
-    }, []);
+    }, [handleKeyDown]);
 
     var styles = {
         divStyle: {
