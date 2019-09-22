@@ -1,7 +1,8 @@
 import React from 'react';
 import UserInput from './UserInput';
-
 import RequestButton from './RequestButton';
+import RemainingWords from './RemainingWords';
+
 
 export default function MainPage(props) {
     const [words, setWords] = React.useState([]);
@@ -15,6 +16,9 @@ export default function MainPage(props) {
                 words={words}
                 setWords={setWords}
                 rack={rack}
+            />
+            <RemainingWords 
+                words={words}
             />
         </>
     )
