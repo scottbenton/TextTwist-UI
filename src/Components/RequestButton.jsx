@@ -7,7 +7,7 @@ const CORS_API = 'https://cors-anywhere.herokuapp.com/'
 const PHP_URL = 'http://texttwistbackend-env.u2wnmj8hvu.us-east-2.elasticbeanstalk.com./';
 
 export default function RequestButton(props) {
-    const {setWords, setRack} = props; 
+    const { setWords, setRack } = props;
 
     const makeCall = (evt) => {
         evt.preventDefault();
@@ -16,18 +16,21 @@ export default function RequestButton(props) {
             method: 'get',
             url: CORS_API + PHP_URL,
         }).then((results) => {
-            console.log(results.data);
             setRack(results.data.rack);
+            console.log("Rack: " + results.data.rack);
             var wordsObject = Object.keys(results.data.words);
-            
-            var wordsArray = []; 
+
+            var wordsArray = [];
             Object.keys(wordsObject).forEach((key) => {
-                var wordObj = {
-                    word: results.data.words[key],
-                    found: false,
+                if (results.data.words[key]) {
+                    var wordObj = {
+                        word: results.data.words[key],
+                        found: false,
+                    }
+                    wordsArray.push(wordObj);
                 }
-                wordsArray.push(wordObj);
             });
+
             console.log(wordsArray);
             setWords(wordsArray);
         });
