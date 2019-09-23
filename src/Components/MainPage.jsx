@@ -4,6 +4,7 @@ import RequestButton from './RequestButton';
 import RemainingWords from './RemainingWords';
 import Instructions from './Instructions';
 
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 export default function MainPage(props) {
     const [words, setWords] = React.useState([]);
@@ -12,20 +13,20 @@ export default function MainPage(props) {
 
     return (
         <>
-            {rack.length === 0 && <Instructions />}
-            <RequestButton
-                setWords={setWords}
-                setRack={setRack}
-                setScore={setScore}
-            />
-            <UserInput
-                words={words}
-                setWords={setWords}
-                rack={rack}
-                setRack={setRack}
-                score={score}
-                setScore={setScore}
-            />
+            <Jumbotron fluid>
+                {
+                    rack.length === 0 ? <Instructions /> :
+                        <UserInput
+                            words={words}
+                            setWords={setWords}
+                            rack={rack}
+                            setRack={setRack}
+                            setScore={setScore}
+                        />
+                }
+                <RequestButton setWords={setWords} setRack={setRack} />
+
+            </Jumbotron>
             <RemainingWords
                 words={words}
             />

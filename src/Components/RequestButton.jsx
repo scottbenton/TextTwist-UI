@@ -9,6 +9,13 @@ const PHP_URL = 'http://texttwistbackend-env.u2wnmj8hvu.us-east-2.elasticbeansta
 export default function RequestButton(props) {
     const { setWords, setRack , setScore} = props;
 
+    const styles = {
+        buttonStyle: {
+            float: 'right',
+            margin: '8px',
+        }
+    }
+
     const makeCall = (evt) => {
         evt.preventDefault();
 
@@ -45,7 +52,7 @@ export default function RequestButton(props) {
     }
 
     return (
-        <Button variant='outline-primary' size="lg" onClick={makeCall}>
+        <Button style={styles.buttonStyle} variant='outline-primary' size="lg" onClick={makeCall}>
             Get New Rack
         </Button>
     );
