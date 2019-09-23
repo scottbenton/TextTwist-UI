@@ -1,17 +1,15 @@
 {
   "files": {
-    "main.css": "/TextTwist-UI/static/css/main.b100e6da.chunk.css",
-    "main.js": "/TextTwist-UI/static/js/main.89e19e0b.chunk.js",
-    "main.js.map": "/TextTwist-UI/static/js/main.89e19e0b.chunk.js.map",
+    "main.css": "/TextTwist-UI/static/css/main.20eeedc5.chunk.css",
+    "main.js": "/TextTwist-UI/static/js/main.6b808759.chunk.js",
+    "main.js.map": "/TextTwist-UI/static/js/main.6b808759.chunk.js.map",
     "runtime-main.js": "/TextTwist-UI/static/js/runtime-main.4e5e0a6c.js",
     "runtime-main.js.map": "/TextTwist-UI/static/js/runtime-main.4e5e0a6c.js.map",
-    "static/css/2.266e55a5.chunk.css": "/TextTwist-UI/static/css/2.266e55a5.chunk.css",
-    "static/js/2.238580c1.chunk.js": "/TextTwist-UI/static/js/2.238580c1.chunk.js",
-    "static/js/2.238580c1.chunk.js.map": "/TextTwist-UI/static/js/2.238580c1.chunk.js.map",
+    "static/js/2.15be4ece.chunk.js": "/TextTwist-UI/static/js/2.15be4ece.chunk.js",
+    "static/js/2.15be4ece.chunk.js.map": "/TextTwist-UI/static/js/2.15be4ece.chunk.js.map",
     "index.html": "/TextTwist-UI/index.html",
-    "precache-manifest.16bbc64cc4b262623e7a0354876faed2.js": "/TextTwist-UI/precache-manifest.16bbc64cc4b262623e7a0354876faed2.js",
+    "precache-manifest.281db30771c4d7e9f6b3d211528b5679.js": "/TextTwist-UI/precache-manifest.281db30771c4d7e9f6b3d211528b5679.js",
     "service-worker.js": "/TextTwist-UI/service-worker.js",
-    "static/css/2.266e55a5.chunk.css.map": "/TextTwist-UI/static/css/2.266e55a5.chunk.css.map",
-    "static/css/main.b100e6da.chunk.css.map": "/TextTwist-UI/static/css/main.b100e6da.chunk.css.map"
+    "static/css/main.20eeedc5.chunk.css.map": "/TextTwist-UI/static/css/main.20eeedc5.chunk.css.map"
   }
 }
