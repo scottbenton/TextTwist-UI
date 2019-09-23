@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
-
 export default function Instructions() {
     return (
         <Jumbotron fluid>

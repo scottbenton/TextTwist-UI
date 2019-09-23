@@ -7,7 +7,7 @@ const CORS_API = 'https://cors-anywhere.herokuapp.com/'
 const PHP_URL = 'http://texttwistbackend-env.u2wnmj8hvu.us-east-2.elasticbeanstalk.com./';
 
 export default function RequestButton(props) {
-    const { setWords, setRack } = props;
+    const { setWords, setRack , setScore} = props;
 
     const makeCall = (evt) => {
         evt.preventDefault();
@@ -39,6 +39,8 @@ export default function RequestButton(props) {
 
             console.log(wordsArray);
             setWords(wordsArray);
+
+            setScore(0);
         });
     }
 
