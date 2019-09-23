@@ -9,6 +9,8 @@ const PHP_URL = 'http://texttwistbackend-env.u2wnmj8hvu.us-east-2.elasticbeansta
 export default function RequestButton(props) {
     const { setWords, setRack , setScore} = props;
 
+    const [loading, setLoading] = React.useState(false);
+
     const styles = {
         buttonStyle: {
             float: 'right',
@@ -18,6 +20,7 @@ export default function RequestButton(props) {
 
     const makeCall = (evt) => {
         evt.preventDefault();
+        setLoading(true);
 
         axios({
             method: 'get',
@@ -48,12 +51,13 @@ export default function RequestButton(props) {
             setWords(wordsArray);
 
             setScore(0);
+            setLoading(false);
         });
     }
 
     return (
-        <Button style={styles.buttonStyle} variant='outline-primary' size="lg" onClick={makeCall}>
-            Get New Rack
+        <Button style={styles.buttonStyle} variant='outline-primary' size="lg" onClick={makeCall} disabled={loading}>
+            {loading ? "Loading..." : "Get New Rack"}
         </Button>
     );
 }
