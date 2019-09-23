@@ -43,7 +43,7 @@ export default function RequestButton(props) {
     }
 
     return (
-        <Button variant='outline-primary' onClick={makeCall}>
+        <Button variant='outline-primary' size="lg" onClick={makeCall}>
             Get New Rack
         </Button>
     );
