@@ -3,7 +3,7 @@ import React, { useEffect, useCallback } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 export default function UserInput(props) {
-    const { setWords, rack, setRack, setScore } = props;
+    const { setWords, rack, setRack, setScore, setStatus } = props;
 
     const [userInput, setUserInput] = React.useState('');
 
@@ -90,9 +90,11 @@ export default function UserInput(props) {
                         var newWords = [...prevWords];
                         newWords[foundWord].found = true;
                         setScore(prevScore => prevScore+10);
+                        setStatus("CORRECT");
                         return newWords;
                     } else {
                         setAllUnused();
+                        setStatus("ERROR");
                         newInput = '';
                         return prevWords;
                     }
