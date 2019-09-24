@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/TextTwist-UI/precache-manifest.9e10821cf186bcb63c0cbeb9bac37a49.js"
+  "/TextTwist-UI/precache-manifest.04495447918a5b4f75ac5c546a70cbd7.js"
 );
 
 self.addEventListener('message', (event) => {

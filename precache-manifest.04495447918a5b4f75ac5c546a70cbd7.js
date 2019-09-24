@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "48bc01180661c30a172c4b2ece60447f",
+    "revision": "2e6d158c1b84306cd74470e970f81cc3",
     "url": "/TextTwist-UI/index.html"
   },
   {
-    "revision": "00bcc975b8b44e0ce1cf",
+    "revision": "4085a0c3c21e32fbbbeb",
     "url": "/TextTwist-UI/static/css/main.f9f01fe3.chunk.css"
   },
   {
-    "revision": "7b20f2b05b03b9e0e97c",
-    "url": "/TextTwist-UI/static/js/2.61a602fd.chunk.js"
+    "revision": "7a4ecf2b122192cfea49",
+    "url": "/TextTwist-UI/static/js/2.132ef32c.chunk.js"
   },
   {
-    "revision": "00bcc975b8b44e0ce1cf",
-    "url": "/TextTwist-UI/static/js/main.46b561d8.chunk.js"
+    "revision": "4085a0c3c21e32fbbbeb",
+    "url": "/TextTwist-UI/static/js/main.8bdeb3c6.chunk.js"
   },
   {
     "revision": "248f173b542050d1dc58",
