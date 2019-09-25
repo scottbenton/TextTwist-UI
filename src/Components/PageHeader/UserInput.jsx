@@ -1,6 +1,9 @@
 import React, { useEffect, useCallback } from 'react';
 
 import { Container, Row, Col } from 'react-bootstrap';
+import ShuffleButton from './ShuffleButton';
+
+import Badge from '../UniversalComponents/TextBadge';
 
 export default function UserInput(props) {
     const { setWords, rack, setRack, setScore, setStatus } = props;
@@ -89,7 +92,7 @@ export default function UserInput(props) {
                         newInput = '';
                         var newWords = [...prevWords];
                         newWords[foundWord].found = true;
-                        setScore(prevScore => prevScore+10);
+                        setScore(prevScore => prevScore + 10);
                         setStatus("CORRECT");
                         return newWords;
                     } else {
@@ -119,25 +122,26 @@ export default function UserInput(props) {
     }, [handleKeyDown]);
 
     var styles = {
-        divStyle: {
-            'fontSize': '36px',
-            'padding': '4px',
-            'width': '100%',
-            'textAlign': 'center',
+        colStyle: {
+            fontSize: '36px',
+            width: '100%',
+            textAlign: 'center',
+            padding: '4px',
         },
         centeringDiv: {
-            'display': 'inline-block',
-            'margin': '0 auto',
+            width: '100%',
+            display: 'inline-block',
+            margin: '0 auto',
         },
         badgeStyle: {
-            'display': 'inline-block',
-            'margin': '4px',
-            'width': '50px',
-            'border': '5px solid transparent',
-            'borderRadius': '15px',
-            'height': '50px',
-            'textAlign': 'center',
-            'lineHeight': '1',
+            display: 'inline-block',
+            margin: '4px',
+            width: '50px',
+            border: '5px solid transparent',
+            borderRadius: '15px',
+            height: '50px',
+            textAlign: 'center',
+            lineHeight: '1',
         }
     }
 
@@ -145,25 +149,29 @@ export default function UserInput(props) {
     return (
         <Container>
             <Row>
-                <Col>
-                    <div style={styles.divStyle}>
-                        <div style={styles.centeringDiv}>
-                            {Array.from(userInput).map((char, index) => (
-                                <div key={index} className="bg-primary text-white" style={styles.badgeStyle}>{char}</div>
-                            ))}
-                        </div>
+                <Col style={styles.colStyle}>
+                    <div style={styles.centeringDiv}>
+                        {Array.from(userInput).map((char, index) => (
+                            <Badge key={index} color={'Primary'} fontSize={36} width={50} height={50}>
+                                {char}
+                            </Badge>
+                        ))}
                     </div>
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <div style={styles.divStyle}>
-                        <div style={styles.centeringDiv}>
-                            {rack.map((char, index) => {
-                                return char.used ? null : <div key={index} className="bg-secondary text-white" style={styles.badgeStyle}>{char.char}</div>
-                            })}
-                        </div>
+                <Col xs={1} />
+                <Col xs={10} style={styles.colStyle}>
+                    <div style={styles.centeringDiv}>
+                        {rack.map((char, index) => (char.used ? null :
+                                <Badge key={index} color={'Secondary'} fontSize={36} width={50} height={50}>
+                                    {char.char}
+                                </Badge>
+                        ))}
                     </div>
+                </Col>
+                <Col xs={1}>
+                    <ShuffleButton setRack={setRack} />
                 </Col>
             </Row>
         </Container>

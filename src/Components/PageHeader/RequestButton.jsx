@@ -13,8 +13,7 @@ export default function RequestButton(props) {
 
     const styles = {
         buttonStyle: {
-            float: 'right',
-            margin: '8px',
+            float: 'left',
         }
     }
 
@@ -56,7 +55,7 @@ export default function RequestButton(props) {
     }
 
     return (
-        <Button style={styles.buttonStyle} variant='outline-primary' size="lg" onClick={makeCall} disabled={loading}>
+        <Button style={styles.buttonStyle} variant='primary' onClick={makeCall} disabled={loading}>
             {loading ? "Loading..." : "Get New Rack"}
         </Button>
     );

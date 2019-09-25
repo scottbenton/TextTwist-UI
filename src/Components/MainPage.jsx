@@ -1,11 +1,7 @@
 import React, {useEffect} from 'react';
-import UserInput from './UserInput';
-import RequestButton from './RequestButton';
-import RemainingWords from './RemainingWords';
-import Instructions from './Instructions';
-import Score from './Score';
+import RemainingWords from './WordDisplay/RemainingWords';
 
-import Jumbotron from 'react-bootstrap/Jumbotron';
+import Header from './PageHeader/Header';
 
 export default function MainPage(props) {
     const [words, setWords] = React.useState([]);
@@ -22,39 +18,18 @@ export default function MainPage(props) {
         return () => clearTimeout(timeout);
     }, [status])
 
-    const colors = {
-        NONE: '#E9ECEF',
-        ERROR: '#ECB4B4',
-        CORRECT: '#B4ECB4'
-    }
-
-    const styles = {
-        jumbotronBase: {
-            transition: 'background-color .3s',
-            backgroundColor: colors[status],
-        }
-    };
-
     return (
         <>
-            <Jumbotron fluid style={styles.jumbotronBase}>
-                {
-                    rack.length === 0 ? <Instructions /> :
-                        <UserInput
-                            words={words}
-                            setWords={setWords}
-                            rack={rack}
-                            setRack={setRack}
-                            setScore={setScore}
-                            setStatus={setStatus}
-                        />
-                }
-                <div>
-                    {rack.length === 0 ? '' : <Score score={score} />}
-                    <RequestButton setWords={setWords} setRack={setRack} setScore={setScore} />
-                </div>
-
-            </Jumbotron>
+            <Header
+                words={words}
+                setWords={setWords}
+                rack={rack}
+                setRack={setRack}
+                score={score}
+                setScore={setScore}
+                status={status}
+                setStatus={setStatus}
+            />
             <RemainingWords
                 words={words}
             />

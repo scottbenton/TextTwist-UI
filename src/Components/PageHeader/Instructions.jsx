@@ -2,8 +2,14 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 export default function Instructions() {
+    const styles = {
+        container: {
+            margin: '8px',
+            maxWidth: '100%',
+        }
+    }
     return (
-        <Container>
+        <Container style={styles.container}>
             <h1>Welcome to Scott and Sophia's TextTwist Clone!</h1>
             <h3>Instructions</h3>
             <p>
